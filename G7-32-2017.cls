@@ -358,7 +358,7 @@
 % Вид отчета
 \newcommand{\ReportType@Value}{}
 \newcommand{\ReportType}[2][]{
-    \renewcommand{\ReportType@Value}{#2\notblank{#1}{, № #1}{}}
+    \renewcommand{\ReportType@Value}{#2\notblank{#1}{, #1}{}}
 }
 % Наименование федеральной программы
 \newcommand{\FederalProgramName@Value}{}
