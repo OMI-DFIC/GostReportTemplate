@@ -146,9 +146,9 @@
             }
         \end{tabular}
         \begin{tabular}{
-            p{0.4\textwidth}
-            p{0.2\textwidth}
-            p{0.4\textwidth}
+            p{0.45\textwidth}
+            p{0.1\textwidth}
+            p{0.45\textwidth}
         }
             \ifbool{isAgreed}{
                 \rule[-2mm]{0.4\textwidth}{0.2mm}
@@ -156,9 +156,7 @@
                 \centering{\footnotesize{дата}}
             }{}
             & &
-            \rule[-2mm]{0.4\textwidth}{0.2mm}
-            \newline
-            \centering{\footnotesize{дата}}
+            <<\rule[-2mm]{0.05\textwidth}{0.2mm}>>\rule[-2mm]{0.2\textwidth}{0.2mm}\,\Year@Value\,г.
         \end{tabular}
         
         \vspace{2em}
@@ -177,30 +175,26 @@
             \FederalProgramName@Value
         }{}
         
-        \notblank{\BookNumber@Value}{
-            Книга~\BookNumber@Value
-        }{}
+        \BookNumber@Value
 
         \vfill
         
         \begin{tabular}{
-            b{0.2\textwidth} 
-            b{0.25\textwidth} 
-            b{0.1\textwidth} 
+            b{0.5\textwidth}
+            b{0.3\textwidth}
             b{0.2\textwidth}
-            b{0.25\textwidth}
         }
-            \empty
-            &
             Руководитель НИР,
             \newline
             \HeadOfResearch@Position@Value
             \newline
             \empty
-            & &
-            \rule[-1mm]{0.2\textwidth}{0.2mm}
+            &
+            \rule[-1mm]{0.3\textwidth}{0.2mm}
             \newline
-            \centering\footnotesize{подпись, дата} & ~\HeadOfResearch@FullName@Value
+            \centering\footnotesize{подпись, дата} 
+            & 
+            ~\HeadOfResearch@FullName@Value
             \newline
             \footnotesize{\empty}
         \end{tabular}
@@ -374,7 +368,9 @@
 % Номер книги
 \newcommand{\BookNumber@Value}{}
 \newcommand{\BookNumber}[1]{
-    \renewcommand{\BookNumber@Value}{#1}
+    \notblank{#1}{
+        \renewcommand{\BookNumber@Value}{Книга~#1}
+    }{}
 }
 % Руководитель НИР
 % должность
@@ -390,9 +386,12 @@
     \renewcommand{\HeadOfResearch@FullName@Value}{#3}
 }
 % Место Год
-\newcommand{\PlaceAndYear@Value}{}
+\newcommand{\Place@Value}{}
+\newcommand{\Year@Value}{}
+\newcommand{\PlaceAndYear@Value}{\Place@Value~\Year@Value}
 \newcommand{\PlaceAndYear}[2]{
-    \renewcommand{\PlaceAndYear@Value}{#1~#2}
+    \renewcommand{\Place@Value}{#1}
+    \renewcommand{\Year@Value}{#2}
 }
 
 
