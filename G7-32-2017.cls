@@ -36,7 +36,7 @@
 \ifbool{isXelatex}{
     \RequirePackage{fontspec} 
     \setromanfont{Times New Roman} 
-    \RequirePackage{polyglossia}
+    \RequirePackage[babelshorthands]{polyglossia}
     \setdefaultlanguage{russian}
     \setotherlanguage{english}
 }{
